@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb1041acae924c13a099ccbe33b062f2" Name="Diagram1">
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Administrator" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.AgeLimit" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Cinematographer" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Country" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Film" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.FilmCrew" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.FilmGenre" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Genre" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Role" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_Administrator" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_AgeLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_Cinematographer_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Cinematographer" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
