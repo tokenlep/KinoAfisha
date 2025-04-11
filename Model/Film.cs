@@ -23,7 +23,7 @@ namespace KinoAfisha.Model
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public int Rating { get; set; }
+        public decimal Rating { get; set; }
         public System.DateTime ReleaseDate { get; set; }
         public int IdGenre { get; set; }
         public string DurationInMinutes { get; set; }

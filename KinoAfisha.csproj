@@ -65,6 +65,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData\ClassFrame.cs" />
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>KinoafishaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AfishaPage.xaml.cs">
       <DependentUpon>AfishaPage.xaml</DependentUpon>
     </Compile>
@@ -135,9 +138,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KinoafishaModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Role.cs">
-      <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
