@@ -23,25 +23,45 @@
             <ListBox.ItemsPanel>
                 <!-- Здесь задаем вертикальное расположение -->
                 <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Vertical"/>
+                    
+                    <WrapPanel/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Width="500" Height="50">
-                            <Image  Width="50" Height="50" Source="{Binding Poster}" />
-                            <TextBlock Text="{Binding Title}" Height="50"/>
-                        <TextBlock Width="5"/>
-                        <TextBlock Text="{Binding Rating}" Width="50"/>
-                            <TextBlock Text ="{Binding ReleaseDate,  StringFormat=dd/MM/yyyy}"
-                                   Width="50"/>
-                            <TextBlock Text="{Binding DurationInMinutes, StringFormat=hh/MM}"/>
-                            <TextBlock Text="{Binding Languages}" Width="50"/>
-                            <TextBlock Text="{Binding ShortDescription}" Width="50"/>
-                            <TextBlock Text="{Binding FullDescription}" Width="50"/>
-                            <TextBlock Text="{Binding OriginalTitle}" Width="50"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="25" />
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="500" />
 
-                     </StackPanel>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.ColumnSpan="4" Width="50" Height="50" Source="{Binding Poster}" />
+                        <TextBlock Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding Title}"/>
+                        <TextBlock Grid.Row="4" Text="{Binding Rating}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text ="{Binding ReleaseDate,  StringFormat=dd/MM/yyyy}"
+                                   />
+                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DurationInMinutes, StringFormat=hh/MM}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Languages}"/>
+                        <TextBlock Grid.Row="6" Grid.ColumnSpan="5" TextWrapping="Wrap" Text="{Binding ShortDescription}"/>
+                        <TextBlock Grid.Row="8" Grid.ColumnSpan="5" TextWrapping="Wrap" Text="{Binding FullDescription}"/>
+                        <TextBlock Grid.Row="10" Text="{Binding OriginalTitle}"/>
+                    </Grid>
                 </DataTemplate>
 
             </ListBox.ItemTemplate>
