@@ -34,17 +34,8 @@
                     FontSize="20" 
                     Margin="5"
                     Click="ScheduleBtn_Click"/>
+            
         </Grid>
-
-        
-
-        
-        
-        
-
-        <Frame Name="MainFrame" Grid.Row="3"/>
-
-
-
+        <Frame Name="MainFrame" Grid.Row="2"  Height="880"/>
     </Grid>
 </Window>

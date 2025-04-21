@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KinoAfisha.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1600" 
-      Title="Афиша">
+      d:DesignHeight="880" d:DesignWidth="1600" 
+      Title="Афиша" >
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,33 +15,38 @@
             <RowDefinition Height="300" />
         </Grid.RowDefinitions>
         <!--#region-->
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                 Grid.RowSpan="3">
+            <ListBox Name="FilmsLb" Grid.Row="0" Background="Lavender"
+                     DisplayMemberPath="{Binding Film}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 Grid.RowSpan="3"
+                     Width="1600" Height="880" Margin="5" d:ItemsSource="{d:SampleData ItemCount=5}"
+                     >
             <ListBox.ItemsPanel>
+                <!-- Здесь задаем вертикальное расположение -->
                 <ItemsPanelTemplate>
-                    <WrapPanel IsItemsHost="True" />
+                    <VirtualizingStackPanel Orientation="Vertical"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-            <ListBox Name="FilmsLb" Background="Lavender" DisplayMemberPath="{Binding Film}" Loaded="FilmsLb_Loaded">
-                <ListBoxItem Margin="3">
-                    <StackPanel Orientation="Horizontal">
-                        <Image  Width="60" Source="{Binding Poster}" />
-                        <TextBlock Text="{Binding Title}" />
-                        <TextBlock Text="{Binding Rating}"/>
-                        <TextBlock Text="{Binding ReleaseDate,  StringFormat=dd/mm/yyyy}"/>
-                        <TextBlock Text="{Binding DurationInMinutes}"/>
-                        <TextBlock Text="{Binding Languages}"/>
-                        <TextBlock Text="{Binding ShortDescription}"/>
-                        <TextBlock Text="{Binding FullDescription}"/>
-                        <TextBlock Text="{Binding OriginalTitle}"/>
-                        
-                    </StackPanel>
-                </ListBoxItem>
-               
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Width="500" Height="50">
+                            <Image  Width="50" Height="50" Source="{Binding Poster}" />
+                            <TextBlock Text="{Binding Title}" Height="50"/>
+                        <TextBlock Width="5"/>
+                        <TextBlock Text="{Binding Rating}" Width="50"/>
+                            <TextBlock Text ="{Binding ReleaseDate,  StringFormat=dd/MM/yyyy}"
+                                   Width="50"/>
+                            <TextBlock Text="{Binding DurationInMinutes, StringFormat=hh/MM}"/>
+                            <TextBlock Text="{Binding Languages}" Width="50"/>
+                            <TextBlock Text="{Binding ShortDescription}" Width="50"/>
+                            <TextBlock Text="{Binding FullDescription}" Width="50"/>
+                            <TextBlock Text="{Binding OriginalTitle}" Width="50"/>
+
+                     </StackPanel>
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
             </ListBox>
-
-
-        </ListBox>
-       <!--#endregion-->
+            <!--#endregion-->
     </Grid>
 </Page>

@@ -1,19 +1,7 @@
 ﻿using KinoAfisha.AppData;
 using KinoAfisha.View.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KinoAfisha
 {
@@ -25,9 +13,10 @@ namespace KinoAfisha
         public MainWindow()
         {
             InitializeComponent();
-
-            Frame mainframe = new Frame();
-            MainFrame = mainframe;
+            // Открываем начальную страницу
+            
+            ClassFrame.mainFrame = new Frame();
+            MainFrame.Navigate(new AfishaPage());
 
             //ClassFrame.mainFrame = MainFrame;
             //MainFrame.Navigate(new EnterPage());
@@ -35,12 +24,13 @@ namespace KinoAfisha
 
         private void AfishaBtn_Click(object sender, RoutedEventArgs e)
         {
-            ClassFrame.mainFrame.Navigate(new AfishaPage());
+            MainFrame.Navigate(new AfishaPage());
+
         }
 
         private void ScheduleBtn_Click(object sender, RoutedEventArgs e)
         {
-            ClassFrame.mainFrame.Navigate(new SchedulePage());
+            MainFrame.Navigate(new SchedulePage());
         }
     }
 }
