@@ -26,7 +26,7 @@
             <Button Grid.Column="1"
                     Name="AfishaBtn" 
                     Content="Афиша"
-                    Click="AfishaBtn_Click"/>
+                    Click="AfishaBtn_Click" FontFamily="Share Tech CYR"/>
 
             <Button Grid.Column="2"
                     Name="ScheduleBtn" 

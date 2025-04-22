@@ -168,17 +168,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\Fonts\PionerSans-Bold.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-BoldItalic.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-Italic.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-Light.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-LightItalic.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-Medium.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-MediumItalic.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-Regular.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-SemiBold.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans-SemiBoldItalic.ttf" />
-    <Resource Include="Resources\Fonts\PionerSans8-VF.ttf" />
+    <Resource Include="Resources\Fonts\Share-Tech-CYR-Italic.otf" />
     <Resource Include="Resources\Fonts\Moskino-Italic.ttf" />
   </ItemGroup>
   <ItemGroup>
