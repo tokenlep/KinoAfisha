@@ -74,7 +74,7 @@
     <Compile Include="View\Pages\SchedulePage.xaml.cs">
       <DependentUpon>SchedulePage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Resources\Styles\ListBoxStyle.xaml">
+    <Page Include="Resources\Styles\TextBlockStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

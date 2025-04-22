@@ -11,11 +11,8 @@
 
     <Grid>
         <!--#region-->
-            <ListBox Name="FilmsLb" Grid.Row="0"  Background="Lavender"
-                     DisplayMemberPath="{Binding Film}"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                     BorderBrush="DarkGray">
-                
+        <ListBox Name="FilmsLb"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel/>
@@ -23,47 +20,33 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="360">
-                        <!-- разметка листбокса -->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="1*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="65" />
-                            <ColumnDefinition Width="25" />
-                            <ColumnDefinition Width="60" />
-                            <ColumnDefinition Width="900" />
-                            
-                        </Grid.ColumnDefinitions>
+                    <Border Width="360" Margin="20" BorderThickness="2" BorderBrush="#2B2B2B">
+                        <Grid Margin="10">
+                            <!-- разметка листбокса -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="300" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="5" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="200" />
+                            </Grid.RowDefinitions>
 
-                        <Image Grid.ColumnSpan="4" Width="160" Height="120" Source="{Binding Poster}"  />
-                        <TextBlock Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding Title}"/>
-                        <TextBlock Grid.Row="2" Grid.Column="4" Text="{Binding OriginalTitle}"/>
-                        <TextBlock Grid.Row="4" Text="{Binding Rating}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text ="{Binding ReleaseDate,StringFormat=dd/MM/yyyy}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DurationInMinutes,StringFormat=hh/MM}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Languages}"/>
-                        <TextBlock Grid.Row="6" Grid.ColumnSpan="5" TextWrapping="Wrap" Text="{Binding ShortDescription}"/>
-                        <!--большое описание -->
-                        <Expander Header="Показать/Скрыть" IsExpanded="False" Grid.Row="8" Grid.ColumnSpan="5">
-                            <TextBlock Grid.Row="8" Grid.ColumnSpan="5"
-                                       TextTrimming="CharacterEllipsis" 
-                                       TextWrapping="Wrap" Text="{Binding FullDescription}"/>
-                        </Expander>
-                        
-                        
-                    </Grid>
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Grid.Row="2" Text="{Binding Country.Title}"/>
+                            <TextBlock Grid.Row="4">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0:yyyy} / {1} мин / {2}">
+                                        <Binding Path="ReleaseDate"/>
+                                        <Binding Path="DurationInMinutes"/>
+                                        <Binding Path="AgeLimit.Title"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <Image Grid.Row="6" Source="{Binding Poster}"  />
+                        </Grid>
+                    </Border>
                 </DataTemplate>
 
             </ListBox.ItemTemplate>
