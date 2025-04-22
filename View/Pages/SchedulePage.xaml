@@ -5,11 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KinoAfisha.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1600"
+      d:DesignHeight="1920" d:DesignWidth="1080" Background="White"
       Title="SchedulePage">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
         <ListBox Name="phonesList">
             <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="Новинки 2015 года" />
             <ListBoxItem Background="LightGray">LG Nexus 5X</ListBoxItem>
@@ -19,5 +23,6 @@
             <ListBoxItem Background="LightGray">Аsus Zenphone 2</ListBoxItem>
             <ListBoxItem>Microsoft Lumia 950</ListBoxItem>
         </ListBox>
+        
     </Grid>
 </Page>

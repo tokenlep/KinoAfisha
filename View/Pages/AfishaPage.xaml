@@ -5,31 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KinoAfisha.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="880" d:DesignWidth="1600" 
+      d:DesignHeight="1920" d:DesignWidth="1080" 
+      
       Title="Афиша" >
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="300" />
-            <RowDefinition Height="300" />
-            <RowDefinition Height="300" />
-        </Grid.RowDefinitions>
         <!--#region-->
-            <ListBox Name="FilmsLb" Grid.Row="0" Background="Lavender"
-                     DisplayMemberPath="{Binding Film}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                 Grid.RowSpan="3"
-                     Width="1600" Height="880" Margin="5" d:ItemsSource="{d:SampleData ItemCount=5}"
-                     >
+            <ListBox Name="FilmsLb" Grid.Row="0"  Background="Lavender"
+                     DisplayMemberPath="{Binding Film}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     BorderBrush="DarkGray">
+                
             <ListBox.ItemsPanel>
-                <!-- Здесь задаем вертикальное расположение -->
-                <ItemsPanelTemplate>
-                    
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
+            <ItemsPanelTemplate>
+                <WrapPanel/>
+            </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Width="360">
+                        <!-- разметка листбокса -->
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*" />
                             <RowDefinition Height="10" />
@@ -44,23 +39,30 @@
                             <RowDefinition Height="1*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="65" />
                             <ColumnDefinition Width="25" />
-                            <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="25" />
-                            <ColumnDefinition Width="75" />
-                            <ColumnDefinition Width="500" />
-
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="900" />
+                            
                         </Grid.ColumnDefinitions>
-                        <Image Grid.ColumnSpan="4" Width="50" Height="50" Source="{Binding Poster}" />
+
+                        <Image Grid.ColumnSpan="4" Width="160" Height="120" Source="{Binding Poster}"  />
                         <TextBlock Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding Title}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="4" Text="{Binding OriginalTitle}"/>
                         <TextBlock Grid.Row="4" Text="{Binding Rating}"/>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text ="{Binding ReleaseDate,  StringFormat=dd/MM/yyyy}"
-                                   />
-                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DurationInMinutes, StringFormat=hh/MM}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text ="{Binding ReleaseDate,StringFormat=dd/MM/yyyy}"/>
+                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DurationInMinutes,StringFormat=hh/MM}"/>
                         <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Languages}"/>
                         <TextBlock Grid.Row="6" Grid.ColumnSpan="5" TextWrapping="Wrap" Text="{Binding ShortDescription}"/>
-                        <TextBlock Grid.Row="8" Grid.ColumnSpan="5" TextWrapping="Wrap" Text="{Binding FullDescription}"/>
-                        <TextBlock Grid.Row="10" Text="{Binding OriginalTitle}"/>
+                        <!--большое описание -->
+                        <Expander Header="Показать/Скрыть" IsExpanded="False" Grid.Row="8" Grid.ColumnSpan="5">
+                            <TextBlock Grid.Row="8" Grid.ColumnSpan="5"
+                                       TextTrimming="CharacterEllipsis" 
+                                       TextWrapping="Wrap" Text="{Binding FullDescription}"/>
+                        </Expander>
+                        
+                        
                     </Grid>
                 </DataTemplate>
 
