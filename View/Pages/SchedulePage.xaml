@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:KinoAfisha.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080" Background="White"
-      Title="SchedulePage">
+      Title="Расписание">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,14 +14,18 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         
-        <ListBox Name="phonesList">
-            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="Новинки 2015 года" />
-            <ListBoxItem Background="LightGray">LG Nexus 5X</ListBoxItem>
-            <ListBoxItem>Huawei Nexus 6P</ListBoxItem>
-            <ListBoxItem Background="LightGray">iPhone 6S</ListBoxItem>
-            <ListBoxItem>iPhone 6S Plus</ListBoxItem>
-            <ListBoxItem Background="LightGray">Аsus Zenphone 2</ListBoxItem>
-            <ListBoxItem>Microsoft Lumia 950</ListBoxItem>
+        <ListBox Name="ScheduleLb">
+            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="23 апреля (среда)"/>
+            <ListBoxItem Margin="5">Бронсон / Великобритания/ 2019/89 мин/ 18+</ListBoxItem>
+            <ListBoxItem Margin="5">Бык / Россия/ 2019/ 99 мин/ 18+</ListBoxItem>
+            <ListBoxItem Margin="5">Законопослушный гражданин / США/ 2009/ 104 мин/ 18+</ListBoxItem>
+            <ListBoxItem Margin="5">Граф Монте-Кристо /Франция /2024/ 179 мин/ 16+</ListBoxItem>
+            <ListBoxItem Margin="5">Переводчик / Испания/ 2023/ 123 мин/ 18+</ListBoxItem>
+            <ListBoxItem Margin="5">Сто лет тому вперед/ Россия/ 2024/ 142 мин/ 12+</ListBoxItem>
+            <ListBoxItem Margin="5">Артур , ты Король/ США/ 2024/ 107 мин/ 12+</ListBoxItem>
+            <ListBoxItem Margin="5">Калашников/ Россия/ 2020/ 101 мин/ 16+</ListBoxItem>
+            <ListBoxItem Margin="5">Сэм - песочный эльф / Великобритания/ 2020/ 100 мин/ 6+</ListBoxItem>
+            <ListBoxItem Margin="5">Повелитель Драконов/ Германия/ 2020/ 87 мин/ 6+</ListBoxItem>
         </ListBox>
         
     </Grid>

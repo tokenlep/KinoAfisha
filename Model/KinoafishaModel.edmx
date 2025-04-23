@@ -85,15 +85,12 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cinematographer_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -179,6 +176,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FilmCrew_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="FilmCrew" Type="Self.FilmCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FilmCrew">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FilmGenre_Film">
           <End Role="Film" Type="Self.Film" Multiplicity="1" />
           <End Role="FilmGenre" Type="Self.FilmGenre" Multiplicity="*" />
@@ -212,7 +221,7 @@
           <EntitySet Name="FilmCrew" EntityType="Self.FilmCrew" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FilmGenre" EntityType="Self.FilmGenre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cinematographer_Country" Association="Self.FK_Cinematographer_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="Cinematographer" EntitySet="Cinematographer" />
@@ -241,6 +250,10 @@
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmCrew" EntitySet="FilmCrew" />
           </AssociationSet>
+          <AssociationSet Name="FK_FilmCrew_Role" Association="Self.FK_FilmCrew_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="FilmCrew" EntitySet="FilmCrew" />
+          </AssociationSet>
           <AssociationSet Name="FK_FilmGenre_Film" Association="Self.FK_FilmGenre_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmGenre" EntitySet="FilmGenre" />
@@ -263,7 +276,7 @@
           <EntitySet Name="FilmCrew" EntityType="Vershinin.Arseniy.KinoafishaModel.FilmCrew" />
           <EntitySet Name="FilmGenre" EntityType="Vershinin.Arseniy.KinoafishaModel.FilmGenre" />
           <EntitySet Name="Genre" EntityType="Vershinin.Arseniy.KinoafishaModel.Genre" />
-          <EntitySet Name="sysdiagrams" EntityType="Vershinin.Arseniy.KinoafishaModel.sysdiagrams" />
+          <EntitySet Name="Role" EntityType="Vershinin.Arseniy.KinoafishaModel.Role" />
           <AssociationSet Name="FK_Film_Administrator" Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_Administrator">
             <End Role="Administrator" EntitySet="Administrator" />
             <End Role="Film" EntitySet="Film" />
@@ -295,6 +308,10 @@
           <AssociationSet Name="FK_FilmGenre_Film" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Film">
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmGenre" EntitySet="FilmGenre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmCrew_Role" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="FilmCrew" EntitySet="FilmCrew" />
           </AssociationSet>
           <AssociationSet Name="FK_FilmGenre_Genre" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre">
             <End Role="Genre" EntitySet="Genre" />
@@ -379,6 +396,7 @@
           <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cinematographer" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Cinematographer" FromRole="FilmCrew" ToRole="Cinematographer" />
           <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Film" FromRole="FilmCrew" ToRole="Film" />
+          <NavigationProperty Name="Role" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role" FromRole="FilmCrew" ToRole="Role" />
         </EntityType>
         <EntityType Name="FilmGenre">
           <Key>
@@ -399,15 +417,13 @@
           <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Film_Genre" FromRole="Genre" ToRole="Film" />
           <NavigationProperty Name="FilmGenre" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre" FromRole="Genre" ToRole="FilmGenre" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FilmCrew" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role" FromRole="Role" ToRole="FilmCrew" />
         </EntityType>
         <Association Name="FK_Film_Administrator">
           <End Type="Vershinin.Arseniy.KinoafishaModel.Administrator" Role="Administrator" Multiplicity="1" />
@@ -505,6 +521,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FilmCrew_Role">
+          <End Type="Vershinin.Arseniy.KinoafishaModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="Vershinin.Arseniy.KinoafishaModel.FilmCrew" Role="FilmCrew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FilmCrew">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FilmGenre_Genre">
           <End Type="Vershinin.Arseniy.KinoafishaModel.Genre" Role="Genre" Multiplicity="1" />
           <End Type="Vershinin.Arseniy.KinoafishaModel.FilmGenre" Role="FilmGenre" Multiplicity="*" />
@@ -517,7 +545,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -611,14 +639,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

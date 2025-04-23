@@ -21,5 +21,6 @@ namespace KinoAfisha.Model
     
         public virtual Cinematographer Cinematographer { get; set; }
         public virtual Film Film { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

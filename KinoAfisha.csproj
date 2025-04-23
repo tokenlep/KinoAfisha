@@ -65,7 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData\ClassFrame.cs" />
-    <Compile Include="Model\sysdiagrams.cs">
+    <Compile Include="Model\Role.cs">
       <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\AfishaPage.xaml.cs">
