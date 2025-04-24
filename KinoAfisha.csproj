@@ -168,6 +168,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Share-Tech-CYR-Bold.otf" />
+    <Resource Include="Resources\Fonts\Share-Tech-CYR-Italic-Bold.otf" />
+    <Resource Include="Resources\Fonts\Share-Tech-CYR.otf" />
     <Resource Include="Resources\Fonts\Share-Tech-CYR-Italic.otf" />
     <Resource Include="Resources\Fonts\Moskino-Italic.ttf" />
   </ItemGroup>
@@ -189,6 +192,7 @@
     <Content Include="Resources\Pictures\bronson.jfif" />
     <Content Include="Resources\Pictures\Bull.jfif" />
     <Content Include="Resources\Pictures\LawAbidingCitizen.jfif" />
+    <Resource Include="Resources\Pictures\Pushkin.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
