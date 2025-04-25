@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinoAfisha"
         mc:Ignorable="d"
-        Title="Главное окно" WindowState="Maximized" Height="1920" Width="1080">
+        Title="Главное окно" WindowState="Maximized" Height="1920" Width="1080" KeyDown="Window_KeyDown">
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -13,6 +15,11 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
+        <!--На данный момент приложение предлагает ограниченный набор функций,
+        таких как просмотр расписания и покупка билетов. 
+        Можно добавить дополнительные возможности, такие как рейтинги фильмов,
+        отзывы зрителей, рекомендации и уведомления о новых фильмах.
+        -->
 
         <Grid>
             <Grid.ColumnDefinitions>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fb1041acae924c13a099ccbe33b062f2" Name="Diagram1">
+      <Diagram DiagramId="fb1041acae924c13a099ccbe33b062f2" Name="Diagram1" ZoomLevel="99">
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Administrator" Width="1.5" PointX="0.75" PointY="12" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.AgeLimit" Width="1.5" PointX="0.75" PointY="7.125" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Cinematographer" Width="1.5" PointX="3" PointY="8.25" />
