@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fb1041acae924c13a099ccbe33b062f2" Name="Diagram1" ZoomLevel="99">
+      <Diagram DiagramId="fb1041acae924c13a099ccbe33b062f2" Name="Diagram1" ZoomLevel="121">
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Administrator" Width="1.5" PointX="0.75" PointY="12" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.AgeLimit" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Cinematographer" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Cinematographer" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Country" Width="1.5" PointX="0.75" PointY="9.375" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.Film" Width="1.5" PointX="3" PointY="2.25" />
         <EntityTypeShape EntityType="Vershinin.Arseniy.KinoafishaModel.FilmCrew" Width="1.5" PointX="5.25" PointY="3.5" />

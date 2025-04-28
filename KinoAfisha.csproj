@@ -72,8 +72,8 @@
     <Compile Include="View\Pages\AfishaPage.xaml.cs">
       <DependentUpon>AfishaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\FeedbackPage.xaml.cs">
-      <DependentUpon>FeedbackPage.xaml</DependentUpon>
+    <Compile Include="View\Pages\FilmPage.xaml.cs">
+      <DependentUpon>FilmPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\SchedulePage.xaml.cs">
       <DependentUpon>SchedulePage.xaml</DependentUpon>
@@ -82,7 +82,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\FeedbackPage.xaml">
+    <Page Include="View\Pages\FilmPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

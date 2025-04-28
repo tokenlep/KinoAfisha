@@ -40,6 +40,8 @@
                     Content="Расписание"
                     Click="ScheduleBtn_Click"/>
             
+            <Button  Width="150" HorizontalAlignment="Right"
+                     Name="FilmBtn" Content="Фильм" Click="FilmBtn_Click"/>
         </Grid>
         <Frame Name="MainFrame" Grid.Row="2" Margin="20"/>
     </Grid>

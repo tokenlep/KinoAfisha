@@ -40,8 +40,13 @@ namespace KinoAfisha
             if((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
             {
                 LoginWindow loginWindow =new LoginWindow();
-                loginWindow.Show();
+                loginWindow.ShowDialog();
             }
+        }
+
+        private void FilmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new FilmPage());
         }
     }
 }
