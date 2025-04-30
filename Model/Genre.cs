@@ -18,7 +18,6 @@ namespace KinoAfisha.Model
         public Genre()
         {
             this.Film = new HashSet<Film>();
-            this.FilmGenre = new HashSet<FilmGenre>();
         }
     
         public int Id { get; set; }
@@ -26,7 +25,5 @@ namespace KinoAfisha.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Film> Film { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FilmGenre> FilmGenre { get; set; }
     }
 }

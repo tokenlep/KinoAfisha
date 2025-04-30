@@ -70,14 +70,6 @@
           <Property Name="IdCinematographer" Type="int" Nullable="false" />
           <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="FilmGenre">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="IdFilm" Type="int" Nullable="false" />
-          <Property Name="IdGenre" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
@@ -91,6 +83,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFilm" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cinematographer_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -188,27 +190,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FilmGenre_Film">
+        <Association Name="FK_Schedule_Film">
           <End Role="Film" Type="Self.Film" Multiplicity="1" />
-          <End Role="FilmGenre" Type="Self.FilmGenre" Multiplicity="*" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FilmGenre">
+            <Dependent Role="Schedule">
               <PropertyRef Name="IdFilm" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FilmGenre_Genre">
-          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
-          <End Role="FilmGenre" Type="Self.FilmGenre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genre">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilmGenre">
-              <PropertyRef Name="IdGenre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -219,9 +209,9 @@
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FilmCrew" EntityType="Self.FilmCrew" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FilmGenre" EntityType="Self.FilmGenre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cinematographer_Country" Association="Self.FK_Cinematographer_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="Cinematographer" EntitySet="Cinematographer" />
@@ -254,13 +244,9 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="FilmCrew" EntitySet="FilmCrew" />
           </AssociationSet>
-          <AssociationSet Name="FK_FilmGenre_Film" Association="Self.FK_FilmGenre_Film">
+          <AssociationSet Name="FK_Schedule_Film" Association="Self.FK_Schedule_Film">
             <End Role="Film" EntitySet="Film" />
-            <End Role="FilmGenre" EntitySet="FilmGenre" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FilmGenre_Genre" Association="Self.FK_FilmGenre_Genre">
-            <End Role="Genre" EntitySet="Genre" />
-            <End Role="FilmGenre" EntitySet="FilmGenre" />
+            <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -274,9 +260,9 @@
           <EntitySet Name="Country" EntityType="Vershinin.Arseniy.KinoafishaModel.Country" />
           <EntitySet Name="Film" EntityType="Vershinin.Arseniy.KinoafishaModel.Film" />
           <EntitySet Name="FilmCrew" EntityType="Vershinin.Arseniy.KinoafishaModel.FilmCrew" />
-          <EntitySet Name="FilmGenre" EntityType="Vershinin.Arseniy.KinoafishaModel.FilmGenre" />
           <EntitySet Name="Genre" EntityType="Vershinin.Arseniy.KinoafishaModel.Genre" />
           <EntitySet Name="Role" EntityType="Vershinin.Arseniy.KinoafishaModel.Role" />
+          <EntitySet Name="Schedule" EntityType="Vershinin.Arseniy.KinoafishaModel.Schedule" />
           <AssociationSet Name="FK_Film_Administrator" Association="Vershinin.Arseniy.KinoafishaModel.FK_Film_Administrator">
             <End Role="Administrator" EntitySet="Administrator" />
             <End Role="Film" EntitySet="Film" />
@@ -305,17 +291,13 @@
             <End Role="Film" EntitySet="Film" />
             <End Role="FilmCrew" EntitySet="FilmCrew" />
           </AssociationSet>
-          <AssociationSet Name="FK_FilmGenre_Film" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Film">
+          <AssociationSet Name="FK_Schedule_Film" Association="Vershinin.Arseniy.KinoafishaModel.FK_Schedule_Film">
             <End Role="Film" EntitySet="Film" />
-            <End Role="FilmGenre" EntitySet="FilmGenre" />
+            <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
           <AssociationSet Name="FK_FilmCrew_Role" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="FilmCrew" EntitySet="FilmCrew" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FilmGenre_Genre" Association="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre">
-            <End Role="Genre" EntitySet="Genre" />
-            <End Role="FilmGenre" EntitySet="FilmGenre" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Administrator">
@@ -384,7 +366,7 @@
           <NavigationProperty Name="Country" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Film_Country" FromRole="Film" ToRole="Country" />
           <NavigationProperty Name="Genre" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Film_Genre" FromRole="Film" ToRole="Genre" />
           <NavigationProperty Name="FilmCrew" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Film" FromRole="Film" ToRole="FilmCrew" />
-          <NavigationProperty Name="FilmGenre" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Film" FromRole="Film" ToRole="FilmGenre" />
+          <NavigationProperty Name="Schedule" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Schedule_Film" FromRole="Film" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="FilmCrew">
           <Key>
@@ -398,16 +380,6 @@
           <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Film" FromRole="FilmCrew" ToRole="Film" />
           <NavigationProperty Name="Role" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role" FromRole="FilmCrew" ToRole="Role" />
         </EntityType>
-        <EntityType Name="FilmGenre">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="IdFilm" Type="Int32" Nullable="false" />
-          <Property Name="IdGenre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Film" FromRole="FilmGenre" ToRole="Film" />
-          <NavigationProperty Name="Genre" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre" FromRole="FilmGenre" ToRole="Genre" />
-        </EntityType>
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
@@ -415,7 +387,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Film_Genre" FromRole="Genre" ToRole="Film" />
-          <NavigationProperty Name="FilmGenre" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmGenre_Genre" FromRole="Genre" ToRole="FilmGenre" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -424,6 +395,17 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FilmCrew" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_FilmCrew_Role" FromRole="Role" ToRole="FilmCrew" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFilm" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Film" Relationship="Vershinin.Arseniy.KinoafishaModel.FK_Schedule_Film" FromRole="Schedule" ToRole="Film" />
         </EntityType>
         <Association Name="FK_Film_Administrator">
           <End Type="Vershinin.Arseniy.KinoafishaModel.Administrator" Role="Administrator" Multiplicity="1" />
@@ -509,14 +491,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FilmGenre_Film">
+        <Association Name="FK_Schedule_Film">
           <End Type="Vershinin.Arseniy.KinoafishaModel.Film" Role="Film" Multiplicity="1" />
-          <End Type="Vershinin.Arseniy.KinoafishaModel.FilmGenre" Role="FilmGenre" Multiplicity="*" />
+          <End Type="Vershinin.Arseniy.KinoafishaModel.Schedule" Role="Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Film">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FilmGenre">
+            <Dependent Role="Schedule">
               <PropertyRef Name="IdFilm" />
             </Dependent>
           </ReferentialConstraint>
@@ -530,18 +512,6 @@
             </Principal>
             <Dependent Role="FilmCrew">
               <PropertyRef Name="IdRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FilmGenre_Genre">
-          <End Type="Vershinin.Arseniy.KinoafishaModel.Genre" Role="Genre" Multiplicity="1" />
-          <End Type="Vershinin.Arseniy.KinoafishaModel.FilmGenre" Role="FilmGenre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genre">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilmGenre">
-              <PropertyRef Name="IdGenre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -622,15 +592,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FilmGenre">
-            <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.FilmGenre">
-              <MappingFragment StoreEntitySet="FilmGenre">
-                <ScalarProperty Name="IdGenre" ColumnName="IdGenre" />
-                <ScalarProperty Name="IdFilm" ColumnName="IdFilm" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Genre">
             <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
@@ -643,6 +604,17 @@
             <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="Vershinin.Arseniy.KinoafishaModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdFilm" ColumnName="IdFilm" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

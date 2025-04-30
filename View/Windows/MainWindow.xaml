@@ -15,8 +15,7 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <!--На данный момент приложение предлагает ограниченный набор функций,
-        таких как просмотр расписания и покупка билетов. 
+        <!--
         Можно добавить дополнительные возможности, такие как рейтинги фильмов,
         отзывы зрителей, рекомендации и уведомления о новых фильмах.
         -->
@@ -40,9 +39,9 @@
                     Content="Расписание"
                     Click="ScheduleBtn_Click"/>
             
-            <Button  Width="150" HorizontalAlignment="Right"
-                     Name="FilmBtn" Content="Фильм" Click="FilmBtn_Click"/>
         </Grid>
-        <Frame Name="MainFrame" Grid.Row="2" Margin="20"/>
+        
+                 <Frame Name="MainFrame" Grid.Row="2" Margin="20"/>
+        
     </Grid>
 </Window>

@@ -17,10 +17,15 @@ namespace KinoAfisha.View.Pages
         {
             InitializeComponent();
             FilmsLb.ItemsSource = App.context.Film.ToList();
-            
-
         }
 
-        
+        private void FilmsLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Film selectedFilm = FilmsLb.SelectedItem as Film;
+            if(selectedFilm != null)
+            {
+                NavigationService.Navigate(new FilmPage(selectedFilm));
+            }
+        }
     }
 }

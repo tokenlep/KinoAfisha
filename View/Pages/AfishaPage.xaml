@@ -10,9 +10,9 @@
       Title="Афиша" >
 
     <Grid>
-        <!--#region-->
+       
         <ListBox Name="FilmsLb"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="FilmsLb_SelectionChanged">
             <ListBox.ItemsPanel>
 
                 <ItemsPanelTemplate>
@@ -62,6 +62,6 @@
             </ListBox.ItemTemplate>
 
             </ListBox>
-        <!--#endregion-->
+       
     </Grid>
 </Page>

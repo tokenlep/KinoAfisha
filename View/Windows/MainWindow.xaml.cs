@@ -15,9 +15,6 @@ namespace KinoAfisha
         public MainWindow()
         {
             InitializeComponent();
-     
-
-
             ClassFrame.mainFrame = new Frame();
             MainFrame.Navigate(new AfishaPage());
         }
@@ -44,9 +41,6 @@ namespace KinoAfisha
             }
         }
 
-        private void FilmBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new FilmPage());
-        }
+        
     }
 }

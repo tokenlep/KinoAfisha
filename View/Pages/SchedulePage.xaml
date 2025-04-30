@@ -9,46 +9,46 @@
       Title="Расписание">
 
     <Grid>
-  <!--#region-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="1885" />
         </Grid.RowDefinitions>
 
-        <!-- Hаписать метод, позволяющий считать время и цену,
-            в зависимости от дня и времени последнего сеанса 
-            (время работы кинотеатра 10:00 - 22:00) 
-            мин. цена 80-100р. макс. цена 350-850р. -->
+        <DatePicker Name="ScheduleDp"  HorizontalAlignment="Left" Grid.Row="0" SelectedDateChanged="ScheduleDp_SelectedDateChanged"/>
 
-        <ListBox Name="ScheduleLb" Grid.Row="0">
-            <TextBlock Height="20"/>
-            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="19 июня (четверг)"/>
-            <ListBoxItem Margin="5">Бронсон/ Великобритания/ 2019 / 89 мин / 18+ \ 10:00 \ 250р.</ListBoxItem>
-            <ListBoxItem Margin="5">Бык/ Россия/ 2019 / 99 мин/ 18+ \ 11:30 \ 200р.</ListBoxItem>
-            <ListBoxItem Margin="5">Законопослушный гражданин/ США/ 2009/ 104 мин/ 18+ \ 12:40 \ 300р.</ListBoxItem>
-            <ListBoxItem Margin="5">Граф Монте-Кристо/ Франция/2024/ 179 мин/ 16+ \ 13:50 \ 350р.</ListBoxItem>
-            <ListBoxItem Margin="5">Переводчик/ Испания/ 2023/ 123 мин/ 18+ \ 17:00 \ 350р.</ListBoxItem>
-            <ListBoxItem Margin="5">Сто лет тому вперед/ Россия/ 2024/ 142 мин/ 12+ \ 19:10\ 200р.</ListBoxItem>
-            <ListBoxItem Margin="5">Артур , ты Король/ США/ 2024/ 107 мин/ 12+ \ 21:30 \ 250р.</ListBoxItem>
-            <TextBlock Height="20"/>
-            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="20 июня (пятница)"/>
-            <ListBoxItem Margin="5">Калашников/ Россия/ 2020/ 101 мин/ 16+ \10:00 \200p.</ListBoxItem>
-            <ListBoxItem Margin="5">Сэм - песочный эльф / Великобритания/ 2020/ 100 мин/ 6+ \ 11:50 \100p.</ListBoxItem>
-            <ListBoxItem Margin="5">Повелитель Драконов/ Германия/ 2020/ 87 мин/ 6+ \ 13:20 \ 100p.</ListBoxItem>
-            <ListBoxItem Margin="5">Бронсон / Великобритания/ 2019/89 мин/ 18+\ 14:50 \ 250p.</ListBoxItem>
-            <ListBoxItem Margin="5">Бык / Россия/ 2019/ 99 мин/ 18+\ 16:20 \ 200p.</ListBoxItem>
-            <ListBoxItem Margin="5">Законопослушный гражданин / США/ 2009/ 104 мин/ 18+ \ 18:00\ 350p.</ListBoxItem>
-            <ListBoxItem Margin="5">Переводчик / Испания/ 2023/ 123 мин/ 18+ \ 19:55 \ 250p.</ListBoxItem>
-            <TextBlock Height="20"/>
-            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="21 июня (суббота)"/>
-            <ListBoxItem Margin="5">Граф Монте-Кристо /Франция /2024/ 179 мин/ 16+ \ 10:00\ 350p.</ListBoxItem>
-            <ListBoxItem Margin="5">Сто лет тому вперед/ Россия/ 2024/ 142 мин/ 12+ \ 13:00\ 250p.</ListBoxItem>
-            <ListBoxItem Margin="5">Артур , ты Король/ США/ 2024/ 107 мин/ 12+ \ 15:30 \ 300p.</ListBoxItem>
-            <ListBoxItem Margin="5">Калашников/ Россия/ 2020/ 101 мин/ 16+ \ 17:20 \ 250p.</ListBoxItem>
-            <ListBoxItem Margin="5">Сэм - песочный эльф / Великобритания/ 2020/ 100 мин/ 6+ \ 19:00 \ 150p.</ListBoxItem>
-            <ListBoxItem Margin="5">Повелитель Драконов/ Германия/ 2020/ 87 мин/ 6+ \ 20:30 \ 200p.</ListBoxItem>
+        <!-- Показывать расписание фильмов в зависимости от даты-->
+
+        <ListBox Name="ScheduleLb" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid VerticalAlignment="Center">
+
+                            <!-- Разметка листбокса -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="600" />
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="300" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="{Binding Film.Title}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Date, StringFormat=dd.mm.yyyy}"/>
+                            <TextBlock Grid.Column="2" Text="{Binding Time, StringFormat=hh\\:mm}"/>
+                            <TextBlock Grid.Column="3" Text="{Binding Price, StringFormat={}{0} руб.}" />
+
+
+                        </Grid>
+                    </Border>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-        <!--#endregion-->
-        
+
     </Grid>
 </Page>

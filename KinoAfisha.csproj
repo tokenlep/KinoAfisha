@@ -69,6 +69,9 @@
     <Compile Include="Model\Role.cs">
       <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Schedule.cs">
+      <DependentUpon>KinoafishaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AfishaPage.xaml.cs">
       <DependentUpon>AfishaPage.xaml</DependentUpon>
     </Compile>
@@ -131,9 +134,6 @@
       <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FilmCrew.cs">
-      <DependentUpon>KinoafishaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FilmGenre.cs">
       <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Genre.cs">

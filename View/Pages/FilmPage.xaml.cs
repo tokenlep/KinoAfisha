@@ -1,6 +1,7 @@
 ﻿using KinoAfisha.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +23,14 @@ namespace KinoAfisha.View.Pages
     /// </summary>
     public partial class FilmPage : Page
     {
-        List<Film> film = App.context.Film.ToList();
+       
 
-        public FilmPage()
+        public FilmPage(Film selectedFilm)
         {
             InitializeComponent();
-            PosterLb.Items.Clear();
-            PosterLb.ItemsSource = App.context.Film.ToList();
-            
-            MovieLb.Items.Clear();
-            MovieLb.ItemsSource = App.context.Film.ToList();
 
-            DescriptLb.ItemsSource = App.context.Film.ToList();
-            CinemaLb.ItemsSource = App.context.Cinematographer.ToList();
+            DataContext = selectedFilm;
+           
         }
     }
 }

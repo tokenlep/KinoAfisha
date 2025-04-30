@@ -31,8 +31,8 @@ namespace KinoAfisha.Model
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Film> Film { get; set; }
         public virtual DbSet<FilmCrew> FilmCrew { get; set; }
-        public virtual DbSet<FilmGenre> FilmGenre { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Schedule> Schedule { get; set; }
     }
 }

@@ -12,13 +12,14 @@ namespace KinoAfisha.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class FilmGenre
+    public partial class Schedule
     {
         public int Id { get; set; }
         public int IdFilm { get; set; }
-        public int IdGenre { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan Time { get; set; }
+        public int Price { get; set; }
     
         public virtual Film Film { get; set; }
-        public virtual Genre Genre { get; set; }
     }
 }
