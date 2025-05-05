@@ -11,7 +11,8 @@ namespace KinoAfisha.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Film
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -36,7 +37,23 @@ namespace KinoAfisha.Model
         public string Poster { get; set; }
         public string Video { get; set; }
         public int IdAdministrator { get; set; }
-    
+
+        public string Directors
+        {
+            get
+            {
+                return string.Join(", ", FilmCrew.Where(f => f.Cinematographer.Id == 1).Select(f => f.Cinematographer.Name));
+            }
+        }
+
+        public string Actors
+        {
+            get
+            {
+                return string.Join(", ", FilmCrew.Where(f => f.Cinematographer.Id == 2).Select(f => f.Cinematographer.Name));
+            }
+        }
+
         public virtual Administrator Administrator { get; set; }
         public virtual AgeLimit AgeLimit { get; set; }
         public virtual Country Country { get; set; }
