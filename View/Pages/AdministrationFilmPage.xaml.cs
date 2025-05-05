@@ -1,11 +1,8 @@
-﻿using KinoAfisha.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,20 +16,13 @@ using System.Windows.Shapes;
 namespace KinoAfisha.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для FilmPage.xaml
+    /// Логика взаимодействия для AdministrationFilmPage.xaml
     /// </summary>
-    public partial class FilmPage : Page
+    public partial class AdministrationFilmPage : Page
     {
-        List<Film> film = App.context.Film.ToList();
-
-        public FilmPage(Film selectedFilm)
+        public AdministrationFilmPage()
         {
             InitializeComponent();
-            DataContext = selectedFilm;
-
-            this.DataContext =
-
-
         }
     }
 }

@@ -13,9 +13,12 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="1885" />
         </Grid.RowDefinitions>
-
-        <DatePicker Name="ScheduleDp"  HorizontalAlignment="Left" Grid.Row="0" SelectedDateChanged="ScheduleDp_SelectedDateChanged"/>
-
+        
+        
+        <DatePicker Name="ScheduleDp"  HorizontalAlignment="Left" Grid.Row="0"
+                    SelectedDateChanged="ScheduleDp_SelectedDateChanged"/>
+        <ComboBox Name="FilmCmb" HorizontalAlignment="Right" Width="450" Grid.Row="0"
+                  SelectionChanged="FilmCmb_SelectionChanged"/>
         <!-- Показывать расписание фильмов в зависимости от даты-->
 
         <ListBox Name="ScheduleLb" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -38,7 +41,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Grid.Column="0" Text="{Binding Film.Title}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Date, StringFormat=dd.mm.yyyy}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Date, StringFormat=dd.MM.yyyy}"/>
                             <TextBlock Grid.Column="2" Text="{Binding Time, StringFormat=hh\\:mm}"/>
                             <TextBlock Grid.Column="3" Text="{Binding Price, StringFormat={}{0} руб.}" />
 

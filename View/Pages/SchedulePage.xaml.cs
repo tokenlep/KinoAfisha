@@ -14,13 +14,18 @@ namespace KinoAfisha.View.Pages
     public partial class SchedulePage : Page
     {
         List<Schedule> Schedule = App.context.Schedule.ToList();
-        
+        List<Film> Films = App.context.Film.ToList();
 
         public SchedulePage()
         {
             InitializeComponent();
             ScheduleLb.ItemsSource = Schedule;
+
+            FilmCmb.ItemsSource = Films;
+            FilmCmb.SelectedValuePath = "Id";
+            FilmCmb.DisplayMemberPath = "Title";
             
+
         }
 
 
@@ -41,6 +46,15 @@ namespace KinoAfisha.View.Pages
         {
             // Фильтрация фильмов по дате
             return Schedule.Where(s => s.Date.Date == date.Date).ToList();
+        }
+
+
+
+        private void FilmCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Фильтруем список по выбранному фильму
+            var selectedTitle = (Film)FilmCmb.SelectedItem;
+            ScheduleLb.ItemsSource = Schedule.Where(x => x.Film.Title == selectedTitle.Title);
         }
     }
 }

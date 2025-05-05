@@ -42,7 +42,7 @@ namespace KinoAfisha.Model
         {
             get
             {
-                return string.Join(", ", FilmCrew.Where(f => f.Cinematographer.Id == 1).Select(f => f.Cinematographer.Name));
+                return string.Join(", ", FilmCrew.Where(f => f.IdRole == 1).Select(f => f.Cinematographer.Name));
             }
         }
 
@@ -50,7 +50,7 @@ namespace KinoAfisha.Model
         {
             get
             {
-                return string.Join(", ", FilmCrew.Where(f => f.Cinematographer.Id == 2).Select(f => f.Cinematographer.Name));
+                return string.Join(", ", FilmCrew.Where(f => f.IdRole == 2).Select(f => f.Cinematographer.Name));
             }
         }
 

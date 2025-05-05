@@ -13,7 +13,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="Black" BorderThickness="1" >
+        <Border BorderBrush="Black" BorderThickness="1" Margin="2" >
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="300" />
@@ -49,9 +49,9 @@
                 </Grid.RowDefinitions>
 
                 <!-- Элемент для отображения видео -->
-                <!--<MediaElement Name="videoPlayer" Source="{Binding Video}" />-->
+                <MediaElement Name="videoPlayer" Source="{Binding Video}"  />
 
-                <Border  Grid.Row="1" BorderBrush="Black" BorderThickness="1" >
+                <Border  Grid.Row="1" BorderBrush="Black" BorderThickness="1" Margin="15" >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
@@ -71,7 +71,7 @@
                     </Grid>
                 </Border>
 
-                <Border  Grid.Row="2" BorderBrush="Black" BorderThickness="1" >
+                <Border  Grid.Row="2" BorderBrush="Black" BorderThickness="1" Margin="15">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
