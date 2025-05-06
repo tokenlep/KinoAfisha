@@ -22,9 +22,22 @@ namespace KinoAfisha.View.Pages
     /// </summary>
     public partial class AdministrationFilmPage : Page
     {
+        List<Film> film = App.context.Film.ToList();
+
         public AdministrationFilmPage()
         {
             InitializeComponent();
+           
+            GenreCmb.ItemsSource = App.context.Genre.ToList();
+            AgeLimitCmb.ItemsSource = App.context.AgeLimit.ToList();
+            CountryCmb.ItemsSource =App.context.Country.ToList();
+
+            GenreCmb.SelectedValuePath = "Id";
+            GenreCmb.DisplayMemberPath = "Title";
+            AgeLimitCmb.SelectedValuePath = "Id";
+            AgeLimitCmb.DisplayMemberPath = "Title";
+            CountryCmb.SelectedValuePath = "Id";
+            CountryCmb.DisplayMemberPath = "Title";
         }
 
         private void AddFilmBtn_Click(object sender, RoutedEventArgs e)
@@ -47,7 +60,15 @@ namespace KinoAfisha.View.Pages
                 Title = TitleTb.Text,
                 Genre = (Genre)GenreCmb.SelectedItem,
                 Video = VideoTb.Text,
-                FullDescription = FullDescriptionTb.Text
+                FullDescription = FullDescriptionTb.Text,
+                Rating = Convert.ToDecimal(RatingTb.Text),
+                ReleaseDate = (DateTime)DatePickerDp.SelectedDate,
+                DurationInMinutes = DurationInMinutesTb.Text,
+                Languages = LanguageTb.Text,
+                AgeLimit = (AgeLimit)AgeLimitCmb.SelectedItem,
+                ShortDescription = ShortDescriptionTb.Text,
+                OriginalTitle = OriginalTitleTb.Text,
+                Country = (Country)CountryCmb.SelectedItem
             };
 
             // Сохранение фильма (сюда добавьте логику сохранения, например, в базу данных)
@@ -67,8 +88,14 @@ namespace KinoAfisha.View.Pages
         }
         private void SaveFilm(Film film)
         {
+            if ( true)
+            {
+
+            }
+
             // Сюда вставляете реальную логику сохранения фильма в базу данных или службу
             MessageBox.Show("Фильм успешно добавлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
         private void ResetForm()
@@ -86,8 +113,7 @@ namespace KinoAfisha.View.Pages
 
         private void AddFilmCreatorBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame frame = new Frame();
-            AddFilmCreatorPage addFilmCreatorPage = new AddFilmCreatorPage();
+            
         }
     }
 }

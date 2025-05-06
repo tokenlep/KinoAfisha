@@ -80,13 +80,13 @@
             <TextBox Grid.Row="10" Grid.Column="1" Height="30" Name="RatingTb"/>
 
             <TextBlock Grid.Row="12" Text="Дата выхода"/>
-            <DatePicker Grid.Row="12" Grid.Column="1"/>
+            <DatePicker Grid.Row="12" Grid.Column="1" Name="DatePickerDp"/>
 
             <TextBlock Grid.Row="14" Grid.Column="0"  Text="Длительность в минутах"/>
             <TextBox Grid.Row="14" Grid.Column="1" Height="30" Name="DurationInMinutesTb"/>
 
             <TextBlock Grid.Row="16" Grid.Column="0" Text="Языки" />
-            <TextBox Grid.Row="16" Grid.Column="1" Height="30" Name="LanguagesTb"/>
+            <TextBox Grid.Row="16" Grid.Column="1" Height="30" Name="LanguageTb"/>
 
             <TextBlock Grid.Row="18" Grid.Column="0" Text="Возрастное ограничение"/>
             <ComboBox Grid.Row="18" Grid.Column="1" Height="30" Name="AgeLimitCmb"/>
@@ -111,7 +111,7 @@
 
 
 
-            <ListBox Grid.Row="26"  Grid.ColumnSpan="2" Name="FilmCrewLb">
+            <ListBox Grid.Row="26"  Grid.ColumnSpan="2" Name="FilmCreatorLb">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -123,11 +123,7 @@
                                 <ColumnDefinition Width="1*" />
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="1*" />
-           
+
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*" />
@@ -137,16 +133,13 @@
                             <TextBlock Grid.Column="2" Grid.Row="0" Text="Фамилия" />
                             <TextBlock Grid.Column="4" Grid.Row="0" Text="Отчество" />
                             <TextBlock Grid.Column="6" Grid.Row="0" Text="Роль" />
-                            <TextBlock Grid.Column="8" Grid.Row="0" Text="Дата рождения"/>
-                            <TextBlock Grid.Column="10" Grid.Row="0" Text="Страна"/>
+
 
 
                             <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Cinematographer.Name}"/>
                             <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Cinematogapher.Surname}"/>
                             <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Cinematographer.Patronymic}"/>
                             <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Role.Title}"/>
-                            <TextBlock Grid.Column="8" Grid.Row="1" Text="{Binding Cinematographer.DateBirth}"/>
-                            <TextBlock Grid.Column="10" Grid.Row="1" Text="{Binding Country.Title}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
