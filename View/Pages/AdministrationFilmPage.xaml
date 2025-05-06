@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KinoAfisha.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="АдминистрированиеФильмов" Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="80" />
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
@@ -30,40 +30,130 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="10" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-            
+
             <TextBlock Text="Постер:" Grid.Row="0" Grid.Column="0"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Height="50" Name="PosterTb"/>
-            
+            <TextBox Grid.Row="0" Grid.Column="1" Height="30" Name="PosterTb"/>
+
             <TextBlock Text="Название:" Grid.Row="2" Grid.Column="0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Height="50" Name="TitleTb"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Height="30" Name="TitleTb"/>
 
             <TextBlock Text="Жанр:" Grid.Row="4" Grid.Column="0"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Height="50" Name="GenreTb"/>
+            <ComboBox Grid.Row="4" Grid.Column="1" Height="30" Name="GenreCmb"/>
 
             <TextBlock Text="Видео:" Grid.Row="6" Grid.Column="0"/>
-            <TextBox Grid.Row="6" Grid.Column="1" Height="50" Name="VideoTb"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Height="30" Name="VideoTb"/>
 
-            <TextBlock Text="Режиссеры:" Grid.Row="8" Grid.Column="0"/>
-            <TextBox Grid.Row="8" Grid.Column="1" Height="50" Name="DirectorsTb"/>
-
-            <TextBlock Text="Полное описание:" Grid.Row="10" Grid.Column="0"/>
-            <TextBox Grid.Row="10" Grid.Column="1" Height="50" Name="FullDescriptionTb"/>
-
-            <TextBlock Text="Актеры:" Grid.Row="12" Grid.Column="0"/>
-            <TextBox Grid.Row="12" Grid.Column="1" Height="50" Name="ActorsTb"/>
-
-            <Button Name="AddFilmBtn" Grid.Row="13" Grid.Column="1" Content="Добавить фильм"/>
+            <TextBlock Text="Полное описание:" Grid.Row="8" Grid.Column="0"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Height="30" Name="FullDescriptionTb"/>
             
-            
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="Рейтинг"/>
+            <TextBox Grid.Row="10" Grid.Column="1" Height="30" Name="RatingTb"/>
+
+            <TextBlock Grid.Row="12" Text="Дата выхода"/>
+            <DatePicker Grid.Row="12" Grid.Column="1"/>
+
+            <TextBlock Grid.Row="14" Grid.Column="0"  Text="Длительность в минутах"/>
+            <TextBox Grid.Row="14" Grid.Column="1" Height="30" Name="DurationInMinutesTb"/>
+
+            <TextBlock Grid.Row="16" Grid.Column="0" Text="Языки" />
+            <TextBox Grid.Row="16" Grid.Column="1" Height="30" Name="LanguagesTb"/>
+
+            <TextBlock Grid.Row="18" Grid.Column="0" Text="Возрастное ограничение"/>
+            <ComboBox Grid.Row="18" Grid.Column="1" Height="30" Name="AgeLimitCmb"/>
+
+            <TextBlock Grid.Row="20" Grid.Column="0" Text="Короткое описание"/>
+            <TextBox Grid.Row="20" Grid.Column="1" Height="30" Name="ShortDescriptionTb"/>
+
+            <TextBlock Grid.Row="22" Grid.Column="0" Text="Оригинальное название"/>
+            <TextBox  Grid.Row="22" Grid.Column="1" Name="OriginalTitleTb"/>
+
+            <TextBlock Grid.Row="24" Grid.Column="0" Text="Страны"/>
+            <ComboBox Grid.Row="24" Grid.Column="1" Name="CountryCmb"/>
+
+
+            <Button Name="AddFilmBtn" Grid.Row="36" Grid.Column="1" Margin="5"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="Добавить фильм" Height="50" Click="AddFilmBtn_Click"/>
+
+            <Button Name="AddFilmCreatorBtn" Grid.Row="36" Grid.Column="0" 
+                    Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="Добавить создателя фильма" Click="AddFilmCreatorBtn_Click"/>
+
+
+
+            <ListBox Grid.Row="26"  Grid.ColumnSpan="2" Name="FilmCrewLb">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="1*" />
+           
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Имя" />
+                            <TextBlock Grid.Column="2" Grid.Row="0" Text="Фамилия" />
+                            <TextBlock Grid.Column="4" Grid.Row="0" Text="Отчество" />
+                            <TextBlock Grid.Column="6" Grid.Row="0" Text="Роль" />
+                            <TextBlock Grid.Column="8" Grid.Row="0" Text="Дата рождения"/>
+                            <TextBlock Grid.Column="10" Grid.Row="0" Text="Страна"/>
+
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Cinematographer.Name}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Cinematogapher.Surname}"/>
+                            <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Cinematographer.Patronymic}"/>
+                            <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Role.Title}"/>
+                            <TextBlock Grid.Column="8" Grid.Row="1" Text="{Binding Cinematographer.DateBirth}"/>
+                            <TextBlock Grid.Column="10" Grid.Row="1" Text="{Binding Country.Title}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
         </Grid>
-        
-        
+
+
     </Grid>
 </Page>

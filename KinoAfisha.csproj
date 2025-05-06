@@ -72,6 +72,9 @@
     <Compile Include="Model\Schedule.cs">
       <DependentUpon>KinoafishaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\AddFilmCreatorPage.xaml.cs">
+      <DependentUpon>AddFilmCreatorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AdministrationFilmPage.xaml.cs">
       <DependentUpon>AdministrationFilmPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <DependentUpon>SchedulePage.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Styles\TextBlockStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\AddFilmCreatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
