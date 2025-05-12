@@ -27,7 +27,10 @@ namespace KinoAfisha.View.Pages
         public AdministrationFilmPage()
         {
             InitializeComponent();
-           
+
+            CreatorFilmLv.ItemsSource = App.context.Cinematographer.ToList();
+            //CreatorFilmLv.ItemsSource = App.context.Role.ToList();
+
             GenreCmb.ItemsSource = App.context.Genre.ToList();
             AgeLimitCmb.ItemsSource = App.context.AgeLimit.ToList();
             CountryCmb.ItemsSource =App.context.Country.ToList();
@@ -105,10 +108,7 @@ namespace KinoAfisha.View.Pages
             GenreCmb.SelectedIndex = -1;
             VideoTb.Clear();
             FullDescriptionTb.Clear();
-            //DirectorsCmb.SelectedIndex = -1;
-            //DirectorsTb.Clear();
-            //ActorsCmb.SelectedIndex = -1;
-            //ActorsTb.Clear();
+           
         }
 
         private void AddFilmCreatorBtn_Click(object sender, RoutedEventArgs e)

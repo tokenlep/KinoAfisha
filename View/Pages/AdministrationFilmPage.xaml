@@ -75,7 +75,7 @@
 
             <TextBlock Text="Полное описание:" Grid.Row="8" Grid.Column="0"/>
             <TextBox Grid.Row="8" Grid.Column="1" Height="30" Name="FullDescriptionTb"/>
-            
+
             <TextBlock Grid.Row="10" Grid.Column="0" Text="Рейтинг"/>
             <TextBox Grid.Row="10" Grid.Column="1" Height="30" Name="RatingTb"/>
 
@@ -105,48 +105,21 @@
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Content="Добавить фильм" Height="50" Click="AddFilmBtn_Click"/>
 
-            <Button Name="AddFilmCreatorBtn" Grid.Row="36" Grid.Column="0" 
-                    Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Content="Добавить создателя фильма" Click="AddFilmCreatorBtn_Click"/>
 
 
-
-            <ListBox Grid.Row="26"  Grid.ColumnSpan="2" Name="FilmCreatorLb">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="1*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Имя" />
-                            <TextBlock Grid.Column="2" Grid.Row="0" Text="Фамилия" />
-                            <TextBlock Grid.Column="4" Grid.Row="0" Text="Отчество" />
-                            <TextBlock Grid.Column="6" Grid.Row="0" Text="Роль" />
-
-
-
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Cinematographer.Name}"/>
-                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Cinematogapher.Surname}"/>
-                            <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Cinematographer.Patronymic}"/>
-                            <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Role.Title}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <ListView Name="CreatorFilmLv" Grid.Row="26" FontSize="30" Grid.ColumnSpan="2" Grid.RowSpan="9">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding Cinematographer.Name}">Имя</GridViewColumn>
+                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding Cinematographer.Family}">Фамилия</GridViewColumn>
+                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding Cinematographer.Patronymic}">Отчество</GridViewColumn>
+                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding Role.Title}">Роль</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
         </Grid>
-
-
+        
     </Grid>
+    
 </Page>

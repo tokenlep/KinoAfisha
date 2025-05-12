@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinoAfisha.View.Windows"
         mc:Ignorable="d"
-        Title="Окно администратора" Height="400" Width="600">
+        Title="Окно администратора" Height="1080" Width="1920">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Сатурн" Style="{StaticResource LogoTextBlock}"/>
+
+            <Button Grid.Column="1"
+                    Name="AdminFilmBtn" 
+                    Content="Создание фильма"
+                    FontFamily="Share Tech CYR" Click="AdminFilmBtn_Click"/>
+
+            <Button Grid.Column="2"
+                    Name="AdminScheduleBtn" 
+                    Content="Создание расписания" Click="AdminScheduleBtn_Click"/>
+
+            <Button Grid.Column="3"
+                    Name="AddFilmCreatorBtn" 
+                    Content="Добавление кинодеятеля" Click="AddFilmCreatorBtn_Click"/>
+
+        </Grid>
+
+        <Frame Name="AdminFrame" Grid.Row="2" Margin="20"/>
     </Grid>
 </Window>

@@ -15,11 +15,6 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <!--
-        Можно добавить дополнительные возможности, такие как рейтинги фильмов,
-        отзывы зрителей, рекомендации и уведомления о новых фильмах.
-        -->
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />

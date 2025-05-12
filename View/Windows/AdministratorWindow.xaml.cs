@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KinoAfisha.AppData;
+using KinoAfisha.View.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,23 @@ namespace KinoAfisha.View.Windows
         public AdministratorWindow()
         {
             InitializeComponent();
+            ClassFrame.adminFrame = new Frame();
+            AdminFrame.Navigate(new AdministrationFilmPage());
+        }
+
+        private void AdminFilmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.Navigate(new AdministrationFilmPage());
+        }
+
+        private void AdminScheduleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.Navigate(new AdministrationSchedulePage());
+        }
+
+        private void AddFilmCreatorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminFrame.Navigate(new AddFilmCreatorPage());
         }
     }
 }

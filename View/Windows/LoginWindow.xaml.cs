@@ -27,7 +27,8 @@ namespace KinoAfisha.View.Windows
             {
                 MessageBox.Show("Авторизация успешна!");
                 // Здесь можно добавить логику перехода на главную страницу
-                
+                AdministratorWindow  administratorWindow = new AdministratorWindow();
+                administratorWindow.Show();
             }
             else
             {
